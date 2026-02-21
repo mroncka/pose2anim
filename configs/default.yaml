@@ -1,0 +1,28 @@
+# pose2anim pipeline configuration
+
+pose2d:
+  model: yolo26m-pose        # yolo26n-pose (fast) | yolo26s-pose | yolo26m-pose (balanced)
+  confidence: 0.5             # Keypoint confidence threshold
+  device: auto                # auto | cpu | cuda:0 | mps
+  batch_size: 1               # Frames per batch (increase for GPU)
+
+pose3d:
+  method: d3dp                # d3dp (diffusion-based lifting)
+  num_proposals: 5            # Number of 3D hypotheses (more = more accurate, slower)
+  sampling_timesteps: 5       # Diffusion denoising steps
+  model_checkpoint: null      # Path to pretrained weights (auto-downloads if null)
+  dataset: h36m               # Training dataset: h36m | mpi_inf_3dhp
+  input_type: detected        # detected (from pose2d) | gt (ground truth, for eval)
+
+export:
+  format: bvh                 # bvh | fbx (fbx requires Blender)
+  fps: 30                     # Output animation framerate
+  skeleton: coco17            # Skeleton type: coco17 | h36m
+  smooth: true                # Apply temporal smoothing
+  smooth_window: 5            # Smoothing window size (frames)
+
+visualization:
+  enabled: false              # Show debug visualization
+  draw_3d: true               # 3D skeleton overlay
+  draw_2d: true               # 2D keypoints overlay
+  save_video: false           # Save annotated video
