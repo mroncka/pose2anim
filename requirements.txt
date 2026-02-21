@@ -1,0 +1,25 @@
+# Core
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.3.0
+numpy>=1.24.0
+opencv-python>=4.8.0
+scipy>=1.11.0
+
+# D3DP dependencies
+einops>=0.6.0
+timm>=0.9.0
+
+# Animation export
+transforms3d>=0.4.1
+
+# Visualization
+matplotlib>=3.7.0
+open3d>=0.17.0
+
+# CLI
+click>=8.1.0
+rich>=13.0.0
+
+# Config
+pyyaml>=6.0.0
